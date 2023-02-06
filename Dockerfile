@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1
 FROM ruby:2.7.2
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client npm
-WORKDIR /idtdre
-COPY Gemfile /idtdre/Gemfile
-COPY Gemfile.lock /idtdre/Gemfile.lock
+WORKDIR /fredit
+COPY Gemfile /fredit/Gemfile
+COPY Gemfile.lock /fredit/Gemfile.lock
 RUN bundle install
-COPY package.json /idtdre/package.json
+COPY package.json /fredit/package.json
 RUN npm install
 
 COPY . .

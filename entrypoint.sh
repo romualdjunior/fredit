@@ -2,7 +2,7 @@
 set -e
 
 # Remove a potentially pre-existing server.pid for Rails.
-rm -f /idtdre/tmp/pids/server.pid
+rm -f /fredit/tmp/pids/server.pid
 
 rake db:create
 rake db:migrate
