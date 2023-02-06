@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres
+    volumes:
+      - idtdre-data:/var/lib/postgresql/data
+      - ./init.sql:/idtdre/init.sql
+
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: fredit_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      # POSTGRES_PORT: 5432
+    # ports:
+    #   - "5000:5432"
+    
+  web:
+    build: .
+    volumes:
+      - .:/idtdre
+    env_file: .env
+    environment:
+      RAILS_ENV: development
+    ports:
+      - "3000:3000"
+volumes:
+  idtdre-data:
