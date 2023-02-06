@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  host: db    # <-- change this line
+  # port: 5000
+  username: postgres
+  password: postgres
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+development:
+  <<: *default
+  database: fredit_development
+
+test:
+  <<: *default
+  database: fredit_test
+
+production:
+  <<: *default
+  database: fredit_production
